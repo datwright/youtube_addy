@@ -15,6 +15,7 @@ class TestYouTubeAddy < Test::Unit::TestCase
     assert_equal "XwmtNk_Yb2Q", YouTubeAddy.extract_video_id("https://www.youtube.com/watch?v=XwmtNk_Yb2Q")
     assert_equal "XwmtNk_Yb2Q", YouTubeAddy.extract_video_id("www.youtube.com/watch?v=XwmtNk_Yb2Q")
     assert_equal "XwmtNk_Yb2Q", YouTubeAddy.extract_video_id("http://www.youtube.com/watch?v=XwmtNk_Yb2Q&feature=autoplay&list=AVGxdCwVVULXfH-k_IVzQbQcibTdWOSgKg&lf=artist&playnext=8")
+    assert_equal "SahhfqNkHFU", YouTubeAddy.extract_video_id("http://www.youtube.com/watch?feature=player_embedded&v=SahhfqNkHFU")
   end
 
   def test_new_style_youtube_url_returns_code
