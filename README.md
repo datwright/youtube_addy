@@ -1,9 +1,10 @@
 ### youtube_addy
+Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML code
+
 **Author:** David Wright
 
 **Contributors:** Rafael da Silva Almeida (@stupied4ever)
 
-Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML code
 
 #### INSTALL
 `gem install youtube_addy`
