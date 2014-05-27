@@ -22,6 +22,11 @@ YouTubeAddy.extract_video_id("https://youtu.be/cD4TAgdS_Xw")
 ```
 
 ```ruby
+YouTubeAddy.extract_video_id("http://www.youtube.com/watch?feature=player_embedded&v=SahhfqNkHFU")
+=> "SahhfqNkHFU"
+```
+
+```ruby
 YouTubeAddy.extract_video_id("http://youtube.com/watch?v=Cd4g33ijd<script>this_should_not_be_here</scipt>")
 => nil
 ```
