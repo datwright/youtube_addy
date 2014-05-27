@@ -6,7 +6,7 @@
 Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML code
 
 #### INSTALL
-`gem install 'youtube_addy'`
+`gem install youtube_addy`
 
 
 #### USAGE
