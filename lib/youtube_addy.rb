@@ -19,6 +19,7 @@ class YouTubeAddy
     URL_FORMATS.values.each do |format_regex|
       match = format_regex.match(youtube_url)
       return match[:id] if match
+      return nil if format_regex == URL_FORMATS.last
     end
   end
 
