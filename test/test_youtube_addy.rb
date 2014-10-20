@@ -25,9 +25,9 @@ class TestYouTubeAddy < Test::Unit::TestCase
 
   def test_youtube_urls_conversion
     vid_id        = "cD4TAgdS_Xw"
-    regular_url   = "http://www.youtube.com/watch?v=#{ vid_id }"
-    embed_url     = "http://www.youtube.com/embed/#{ vid_id }"
-    shortened_url = "http://youtu.be/#{ vid_id }"
+    regular_url   = "https://www.youtube.com/watch?v=#{ vid_id }"
+    embed_url     = "https://www.youtube.com/embed/#{ vid_id }"
+    shortened_url = "https://youtu.be/#{ vid_id }"
 
     assert_equal regular_url, YouTubeAddy.youtube_regular_url(embed_url)
     assert_equal regular_url, YouTubeAddy.youtube_regular_url(shortened_url)
