@@ -23,7 +23,12 @@ class YouTubeAddy
     end
   end
 
-  def self.youtube_embed_url(youtube_url, width = 420, height = 315)
+  def self.youtube_embed_url(youtube_url)
+    vid_id = extract_video_id(youtube_url)
+    "https://www.youtube.com/embed/#{vid_id}"
+  end
+
+  def self.youtube_embed_iframe(youtube_url, width = 420, height = 315)
     vid_id = extract_video_id(youtube_url)
     %(<iframe id="#{vid_id}" width="#{width}" height="#{height}" src="https://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
   end
