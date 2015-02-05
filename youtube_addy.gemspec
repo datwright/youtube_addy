@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'youtube_addy'
-  s.version     = '1.0.4'
+  s.version     = '1.0.6'
   s.date        = '2014-05-26'
   s.summary     = "YouTube address helper"
   s.description = "Parse youtube addresses and generate embed html code"
