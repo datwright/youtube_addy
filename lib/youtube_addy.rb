@@ -39,6 +39,6 @@ class YouTubeAddy
 
   def self.youtube_embed_url_only(youtube_url)
     vid_id = extract_video_id(youtube_url)
-		"http://www.youtube.com/embed/#{ vid_id }"
+	  "http://www.youtube.com/embed/#{ vid_id }"
   end
 end
