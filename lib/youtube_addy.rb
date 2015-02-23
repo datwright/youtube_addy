@@ -24,7 +24,7 @@ class YouTubeAddy
 
   def self.youtube_embed_url(youtube_url, width = 420, height = 315)
     vid_id = extract_video_id(youtube_url)
-    %(<iframe width="#{width}" height="#{height}" src="http://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+    %(<iframe width="#{width}" height="#{height}" src="#{ youtube_embed_url_only(youtube_url) }" frameborder="0" allowfullscreen></iframe>)
   end
 
   def self.youtube_regular_url(youtube_url)
@@ -35,5 +35,10 @@ class YouTubeAddy
   def self.youtube_shortened_url(youtube_url)
     vid_id = extract_video_id(youtube_url)
     "http://youtu.be/#{ vid_id }"
+  end
+
+  def self.youtube_embed_url_only(youtube_url)
+    vid_id = extract_video_id(youtube_url)
+	  "http://www.youtube.com/embed/#{ vid_id }"
   end
 end
