@@ -24,15 +24,36 @@ class TestYouTubeAddy < Test::Unit::TestCase
   end
 
   def test_youtube_urls_conversion
-    vid_id        = "cD4TAgdS_Xw"
-    regular_url   = "http://www.youtube.com/watch?v=#{ vid_id }"
-    embed_url     = "http://www.youtube.com/embed/#{ vid_id }"
-    shortened_url = "http://youtu.be/#{ vid_id }"
+    vid_id              = "cD4TAgdS_Xw"
+    regular_url         = "http://www.youtube.com/watch?v=#{ vid_id }"
+    regular_url_https   = "https://www.youtube.com/watch?v=#{ vid_id }"
+    embed_url           = "http://www.youtube.com/embed/#{ vid_id }"
+    shortened_url       = "http://youtu.be/#{ vid_id }"
+    shortened_url_https = "https://youtu.be/#{ vid_id }"
 
     assert_equal regular_url, YouTubeAddy.youtube_regular_url(embed_url)
     assert_equal regular_url, YouTubeAddy.youtube_regular_url(shortened_url)
+    assert_equal regular_url_https, YouTubeAddy.youtube_regular_url(embed_url, :ssl => true)
+    assert_equal regular_url_https, YouTubeAddy.youtube_regular_url(shortened_url, :ssl => true)
 
     assert_equal shortened_url, YouTubeAddy.youtube_shortened_url(embed_url)
     assert_equal shortened_url, YouTubeAddy.youtube_shortened_url(regular_url)
+    assert_equal shortened_url_https, YouTubeAddy.youtube_shortened_url(embed_url, :ssl => true)
+    assert_equal shortened_url_https, YouTubeAddy.youtube_shortened_url(regular_url, :ssl => true)
+  end
+
+  def test_youtube_embed_url
+    vid_id                  = "cD4TAgdS_Xw"
+    regular_url             = "http://www.youtube.com/watch?v=#{ vid_id }"
+    iframe_default          = %(<iframe width="420" height="315" src="http://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+    iframe_custom           = %(<iframe width="500" height="350" src="http://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+    iframe_default_with_ssl = %(<iframe width="420" height="315" src="https://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+    iframe_custom_with_ssl  = %(<iframe width="500" height="350" src="https://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+
+    assert_equal iframe_default, YouTubeAddy.youtube_embed_url(regular_url)
+    assert_equal iframe_custom, YouTubeAddy.youtube_embed_url(regular_url, 500, 350)
+    assert_equal iframe_default_with_ssl, YouTubeAddy.youtube_embed_url(regular_url, 420, 315, :ssl => true)
+    assert_equal iframe_custom_with_ssl, YouTubeAddy.youtube_embed_url(regular_url, 500, 350, :ssl => true)
+
   end
 end
