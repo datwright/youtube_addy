@@ -36,4 +36,9 @@ class YouTubeAddy
     vid_id = extract_video_id(youtube_url)
     "http://youtu.be/#{ vid_id }"
   end
+
+  def self.youtube_video_image(youtube_url)
+    vid_id = extract_video_id(youtube_url)
+    "https://i.ytimg.com/vi/#{ vid_id }/hqdefault.jpg"
+  end
 end
