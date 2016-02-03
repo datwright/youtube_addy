@@ -4,6 +4,7 @@ require 'youtube_addy'
 class TestYouTubeAddy < Test::Unit::TestCase
   def test_invalid_youtube_url
     assert_equal nil, YouTubeAddy.extract_video_id("not a valid url")
+    assert_equal nil, YouTubeAddy.extract_video_id("example.com")
     assert YouTubeAddy.has_invalid_chars?("http://www.youtube.com/watch?v=something<script>badthings</script>")
     assert_equal nil, YouTubeAddy.extract_video_id("http://www.youtube.com/watch?v=something<script>badthings</script>")
   end

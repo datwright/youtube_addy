@@ -16,9 +16,14 @@ class YouTubeAddy
   def self.extract_video_id(youtube_url)
     return nil if has_invalid_chars?(youtube_url)
 
-    URL_FORMATS.values.each do |format_regex|
+    URL_FORMATS.values.inject(nil) do |result, format_regex|
       match = format_regex.match(youtube_url)
-      return match[:id] if match
+
+      if match
+        match[:id]
+      else
+        result
+      end
     end
   end
 
